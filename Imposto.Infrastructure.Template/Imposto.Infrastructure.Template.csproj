@@ -10,8 +10,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Imposto.Configuration\Imposto.Configuration.csproj" />
-      <ProjectReference Include="..\Imposto.Infrastructure.Repository\Imposto.Infrastructure.Repository.csproj" />
-      <ProjectReference Include="..\Imposto.Infrastructure.Template\Imposto.Infrastructure.Template.csproj" />
     </ItemGroup>
 
 </Project>

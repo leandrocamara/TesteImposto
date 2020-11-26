@@ -19,6 +19,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CrossCuting", "CrossCuting"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.IoC", "Imposto.IoC\Imposto.IoC.csproj", "{45CD5D43-F30C-4D46-A67E-C7201F5906EB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Infrastructure.Template", "Imposto.Infrastructure.Template\Imposto.Infrastructure.Template.csproj", "{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Configuration", "Imposto.Configuration\Imposto.Configuration.csproj", "{9D615CBC-2681-47CB-BCF6-D4C32DC55166}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{45CD5D43-F30C-4D46-A67E-C7201F5906EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45CD5D43-F30C-4D46-A67E-C7201F5906EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45CD5D43-F30C-4D46-A67E-C7201F5906EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D615CBC-2681-47CB-BCF6-D4C32DC55166}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D615CBC-2681-47CB-BCF6-D4C32DC55166}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D615CBC-2681-47CB-BCF6-D4C32DC55166}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D615CBC-2681-47CB-BCF6-D4C32DC55166}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,5 +62,7 @@ Global
 		{B477192F-814E-4710-8DBC-244AD89157C8} = {3AC48D1B-314C-4B90-86C8-031B9D72246D}
 		{7381FC5B-0C82-483D-BEB0-86172CF22217} = {4730BEFC-085E-46D0-BFA3-A3D870BEF857}
 		{45CD5D43-F30C-4D46-A67E-C7201F5906EB} = {33CB0C81-3F1F-47E6-A9F8-DB7373DC570A}
+		{E9B93A52-55DC-4B78-B8D6-7C03FB1F5ED4} = {4730BEFC-085E-46D0-BFA3-A3D870BEF857}
+		{9D615CBC-2681-47CB-BCF6-D4C32DC55166} = {33CB0C81-3F1F-47E6-A9F8-DB7373DC570A}
 	EndGlobalSection
 EndGlobal
