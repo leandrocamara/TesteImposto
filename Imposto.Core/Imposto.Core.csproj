@@ -39,15 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\NotaFiscalRepository.cs" />
-    <Compile Include="Domain\NotaFiscal.cs" />
-    <Compile Include="Domain\NotaFiscalItem.cs" />
-    <Compile Include="Domain\Pedido.cs" />
-    <Compile Include="Domain\PedidoItem.cs" />
+    <Compile Include="NotasFiscais\Interfaces\INotaFiscalItemService.cs" />
+    <Compile Include="NotasFiscais\Interfaces\INotaFiscalRepository.cs" />
+    <Compile Include="NotasFiscais\Interfaces\INotaFiscalService.cs" />
+    <Compile Include="NotasFiscais\Interfaces\INotaFiscalItemRepository.cs" />
+    <Compile Include="NotasFiscais\NotaFiscal.cs" />
+    <Compile Include="NotasFiscais\NotaFiscalItem.cs" />
+    <Compile Include="NotasFiscais\NotaFiscalItemService.cs" />
+    <Compile Include="NotasFiscais\NotaFiscalService.cs" />
+    <Compile Include="Pedidos\Interfaces\IPedidoItemService.cs" />
+    <Compile Include="Pedidos\Interfaces\IPedidoService.cs" />
+    <Compile Include="Pedidos\Pedido.cs" />
+    <Compile Include="Pedidos\PedidoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\NotaFiscalService.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

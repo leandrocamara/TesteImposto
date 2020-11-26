@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TesteImposto", "TesteImpost
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Core", "Imposto.Core\Imposto.Core.csproj", "{2339C0B3-1E95-4CD3-BFBA-64B377857016}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{3954C04E-55DC-42B0-9709-178CF58FBD6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{3AC48D1B-314C-4B90-86C8-031B9D72246D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4730BEFC-085E-46D0-BFA3-A3D870BEF857}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Imposto.Infrastructure.Repository", "Imposto.Infrastructure.Repository\Imposto.Infrastructure.Repository.csproj", "{7381FC5B-0C82-483D-BEB0-86172CF22217}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +29,17 @@ Global
 		{2339C0B3-1E95-4CD3-BFBA-64B377857016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2339C0B3-1E95-4CD3-BFBA-64B377857016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2339C0B3-1E95-4CD3-BFBA-64B377857016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7381FC5B-0C82-483D-BEB0-86172CF22217}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7381FC5B-0C82-483D-BEB0-86172CF22217}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7381FC5B-0C82-483D-BEB0-86172CF22217}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7381FC5B-0C82-483D-BEB0-86172CF22217}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2339C0B3-1E95-4CD3-BFBA-64B377857016} = {3954C04E-55DC-42B0-9709-178CF58FBD6E}
+		{B477192F-814E-4710-8DBC-244AD89157C8} = {3AC48D1B-314C-4B90-86C8-031B9D72246D}
+		{7381FC5B-0C82-483D-BEB0-86172CF22217} = {4730BEFC-085E-46D0-BFA3-A3D870BEF857}
 	EndGlobalSection
 EndGlobal
