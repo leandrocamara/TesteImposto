@@ -2,6 +2,6 @@
 {
     public interface INotaFiscalRepository
     {
-        
+        void Add(NotaFiscal notaFiscal);
     }
 }
