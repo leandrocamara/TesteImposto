@@ -9,13 +9,13 @@ namespace Imposto.Infrastructure.Repository.Context.Configuration
         public NotaFiscalConfiguration()
         {
             ToTable("NotaFiscal");
-            HasKey(nf => nf.Id).Property(nf => nf.Id)
+            HasKey(nf => nf.Id).Property(nf => nf.Id).HasColumnName("Id")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(nf => nf.NumeroNotaFiscal).IsRequired();
-            Property(nf => nf.Serie).IsRequired();
-            Property(nf => nf.NomeCliente).IsRequired();
-            Property(nf => nf.EstadoDestino).IsRequired();
-            Property(nf => nf.EstadoOrigem).IsRequired();
+            Property(nf => nf.NumeroNotaFiscal).HasColumnName("NumeroNotaFiscal").IsRequired();
+            Property(nf => nf.Serie).HasColumnName("Serie").IsRequired();
+            Property(nf => nf.NomeCliente).HasColumnName("NomeCliente").IsRequired();
+            Property(nf => nf.EstadoDestino).HasColumnName("EstadoDestino").IsRequired();
+            Property(nf => nf.EstadoOrigem).HasColumnName("EstadoOrigem").IsRequired();
         }
     }
 }

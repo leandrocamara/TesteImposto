@@ -9,16 +9,19 @@ namespace Imposto.Infrastructure.Repository.Context.Configuration
         public NotaFiscalItemConfiguration()
         {
             ToTable("NotaFiscalItem");
-            HasKey(nfi => nfi.Id).Property(nfi => nfi.Id)
+            HasKey(nfi => nfi.Id).Property(nfi => nfi.Id).HasColumnName("Id")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            Property(nfi => nfi.IdNotaFiscal).IsRequired();
-            Property(nfi => nfi.Cfop).IsRequired();
-            Property(nfi => nfi.TipoIcms).IsRequired();
-            Property(nfi => nfi.BaseIcms).IsRequired();
-            Property(nfi => nfi.AliquotaIcms).IsRequired();
-            Property(nfi => nfi.ValorIcms).IsRequired();
-            Property(nfi => nfi.NomeProduto).IsRequired();
-            Property(nfi => nfi.CodigoProduto).IsRequired();
+            Property(nfi => nfi.IdNotaFiscal).HasColumnName("IdNotaFiscal").IsRequired();
+            Property(nfi => nfi.Cfop).HasColumnName("Cfop").IsRequired();
+            Property(nfi => nfi.TipoIcms).HasColumnName("TipoIcms").IsRequired();
+            Property(nfi => nfi.BaseIcms).HasColumnName("BaseIcms").IsRequired();
+            Property(nfi => nfi.AliquotaIcms).HasColumnName("AliquotaIcms").IsRequired();
+            Property(nfi => nfi.ValorIcms).HasColumnName("ValorIcms").IsRequired();
+            Property(nfi => nfi.NomeProduto).HasColumnName("NomeProduto").IsRequired();
+            Property(nfi => nfi.CodigoProduto).HasColumnName("CodigoProduto").IsRequired();
+            Property(nfi => nfi.BaseIpi).HasColumnName("BaseIpi").IsRequired();
+            Property(nfi => nfi.AliquotaIpi).HasColumnName("AliquotaIpi").IsRequired();
+            Property(nfi => nfi.ValorIpi).HasColumnName("ValorIpi").IsRequired();
 
             HasRequired(nfi => nfi.NotaFiscal)
                 .WithMany(nf=>nf.ItensNotaFiscal)
