@@ -10,15 +10,13 @@ namespace Imposto.Core.NotasFiscais
         public int NumeroNotaFiscal { get; set; }
         public int Serie { get; set; }
         public string NomeCliente { get; set; }
-
         public string EstadoDestino { get; set; }
         public string EstadoOrigem { get; set; }
-
-        public List<NotaFiscalItem> ItensDaNotaFiscal { get; set; }
+        public List<NotaFiscalItem> ItensNotaFiscal { get; set; }
 
         public NotaFiscal()
         {
-            ItensDaNotaFiscal = new List<NotaFiscalItem>();
+            ItensNotaFiscal = new List<NotaFiscalItem>();
         }
 
         public void EmitirNotaFiscal(Pedido pedido)

@@ -1,32 +1,37 @@
-﻿using System;
+﻿using System.Data.Entity;
+using System.Data.SqlClient;
 using Imposto.Core.NotasFiscais;
 using Imposto.Core.NotasFiscais.Interfaces;
-using Imposto.Infrastructure.Template;
 
 namespace Imposto.Infrastructure.Repository.Repositories
 {
-    public class NotaFiscalRepository : INotaFiscalRepository
+    public class NotaFiscalRepository : RepositoryBase<NotaFiscal>, INotaFiscalRepository
     {
-        private readonly TemplateService _templateService;
-
-        public NotaFiscalRepository(TemplateService templateService)
+        public NotaFiscalRepository(DbContext context) : base(context)
         {
-            _templateService = templateService;
         }
 
         public void Add(NotaFiscal notaFiscal)
         {
-            try
-            {
-                _templateService.GenerateXml(notaFiscal, notaFiscal.Serie.ToString());
-
-                // TODO: Executar as procedures, para persistência dos dados da NotaFiscal e seus Itens.
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
+            // Save(notaFiscal);
+            // Context.SaveChanges();
+            Context.Database.ExecuteSqlCommand(ProcedureNotaFiscal, GetParamsProcedureNotaFiscal(notaFiscal));
         }
+
+        private object[] GetParamsProcedureNotaFiscal(NotaFiscal notaFiscal)
+        {
+            return new object[]
+            {
+                new SqlParameter("@pId", notaFiscal.Id),
+                new SqlParameter("@pNumeroNotaFiscal", notaFiscal.NumeroNotaFiscal),
+                new SqlParameter("@pSerie", notaFiscal.Serie),
+                new SqlParameter("@pNomeCliente", notaFiscal.NomeCliente),
+                new SqlParameter("@pEstadoDestino", notaFiscal.EstadoDestino),
+                new SqlParameter("@pEstadoOrigem", notaFiscal.EstadoOrigem)
+            };
+        }
+
+        private const string ProcedureNotaFiscal = 
+            "P_NOTA_FISCAL @pId, @pNumeroNotaFiscal, @pSerie, @pNomeCliente, @pEstadoDestino, @pEstadoOrigem";
     }
 }

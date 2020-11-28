@@ -1,10 +1,11 @@
 ﻿using System.IO;
 using Imposto.Configuration;
+using Imposto.Core.Services;
 using Imposto.Infrastructure.Template.Templates;
 
 namespace Imposto.Infrastructure.Template
 {
-    public class TemplateService
+    public class TemplateService : ITemplateService
     {
         private readonly string _directoryPath;
 

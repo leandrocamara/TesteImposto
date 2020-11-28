@@ -1,4 +1,5 @@
-﻿using SimpleInjector;
+﻿using Imposto.Core.Services;
+using SimpleInjector;
 
 namespace Imposto.Infrastructure.Template
 {
@@ -6,7 +7,7 @@ namespace Imposto.Infrastructure.Template
     {
         public static void AddBootstrapperTemplate(Container container)
         {
-            container.Register<TemplateService>(Lifestyle.Singleton);
+            container.Register<ITemplateService, TemplateService>();
         }
     }
 }

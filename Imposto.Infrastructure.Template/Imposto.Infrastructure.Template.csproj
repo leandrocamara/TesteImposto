@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Imposto.Configuration\Imposto.Configuration.csproj" />
+      <ProjectReference Include="..\Imposto.Core\Imposto.Core.csproj" />
     </ItemGroup>
 
 </Project>

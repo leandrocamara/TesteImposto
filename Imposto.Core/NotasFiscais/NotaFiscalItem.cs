@@ -11,5 +11,7 @@
         public double ValorIcms { get; set; }
         public string NomeProduto { get; set; }
         public string CodigoProduto { get; set; }
+
+        public NotaFiscal NotaFiscal { get; set; }
     }
 }
