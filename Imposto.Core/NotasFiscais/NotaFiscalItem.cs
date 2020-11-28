@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Imposto.Core.Domain
+﻿namespace Imposto.Core.NotasFiscais
 {
     public class NotaFiscalItem
     {
@@ -17,5 +11,7 @@ namespace Imposto.Core.Domain
         public double ValorIcms { get; set; }
         public string NomeProduto { get; set; }
         public string CodigoProduto { get; set; }
+
+        public NotaFiscal NotaFiscal { get; set; }
     }
 }
