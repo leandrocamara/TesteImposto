@@ -44,16 +44,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="NotasFiscais\Interfaces\INotaFiscalItemService.cs" />
+    <Compile Include="Impostos\Imposto.cs" />
+    <Compile Include="Impostos\ImpostoIcms.cs" />
+    <Compile Include="Impostos\ImpostoIpi.cs" />
     <Compile Include="NotasFiscais\Interfaces\INotaFiscalRepository.cs" />
     <Compile Include="NotasFiscais\Interfaces\INotaFiscalService.cs" />
-    <Compile Include="NotasFiscais\Interfaces\INotaFiscalItemRepository.cs" />
     <Compile Include="NotasFiscais\NotaFiscal.cs" />
     <Compile Include="NotasFiscais\NotaFiscalItem.cs" />
-    <Compile Include="NotasFiscais\NotaFiscalItemService.cs" />
     <Compile Include="NotasFiscais\NotaFiscalService.cs" />
-    <Compile Include="Pedidos\Interfaces\IPedidoItemService.cs" />
-    <Compile Include="Pedidos\Interfaces\IPedidoService.cs" />
     <Compile Include="Pedidos\Pedido.cs" />
     <Compile Include="Pedidos\PedidoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

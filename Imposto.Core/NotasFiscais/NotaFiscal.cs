@@ -26,10 +26,10 @@ namespace Imposto.Core.NotasFiscais
                 EstadoOrigem = pedido.EstadoOrigem
             };
 
-            pedido.ItensDoPedido.ForEach(itemPedido =>
+            foreach (var itemPedido in pedido.ItensDoPedido)
             {
                 notaFiscal.ItensNotaFiscal.Add(NotaFiscalItem.New(notaFiscal, itemPedido));
-            });
+            }
 
             notaFiscal.Validate();
 
