@@ -27,8 +27,8 @@ namespace Imposto.Infrastructure.Repository.Repositories
 
             foreach (var notaFiscalItem in notaFiscal.ItensNotaFiscal)
             {
-                Context.Database.ExecuteSqlCommand(
-                    ProcedureNotaFiscalItem, GetParamsProcedureNotaFiscalItem(ultimaNotaFiscal.Id, notaFiscalItem));
+                Context.Database.ExecuteSqlCommand(ProcedureNotaFiscalItem,
+                    GetParamsProcedureNotaFiscalItem(ultimaNotaFiscal.Id, notaFiscalItem));
             }
         }
 
@@ -57,7 +57,10 @@ namespace Imposto.Infrastructure.Repository.Repositories
                 new SqlParameter("@pAliquotaIcms", notaFiscalItem.AliquotaIcms),
                 new SqlParameter("@pValorIcms", notaFiscalItem.ValorIcms),
                 new SqlParameter("@pNomeProduto", notaFiscalItem.NomeProduto),
-                new SqlParameter("@pCodigoProduto", notaFiscalItem.CodigoProduto)
+                new SqlParameter("@pCodigoProduto", notaFiscalItem.CodigoProduto),
+                new SqlParameter("@pBaseIpi", notaFiscalItem.BaseIpi),
+                new SqlParameter("@pAliquotaIpi", notaFiscalItem.AliquotaIpi),
+                new SqlParameter("@pValorIpi", notaFiscalItem.ValorIpi),
             };
         }
 
@@ -65,6 +68,6 @@ namespace Imposto.Infrastructure.Repository.Repositories
             "P_NOTA_FISCAL @pId, @pNumeroNotaFiscal, @pSerie, @pNomeCliente, @pEstadoDestino, @pEstadoOrigem";
 
         private const string ProcedureNotaFiscalItem =
-            "P_NOTA_FISCAL_ITEM @pId, @pIdNotaFiscal, @pCfop, @pTipoIcms, @pBaseIcms, @pAliquotaIcms, @pValorIcms, @pNomeProduto, @pCodigoProduto";
+            "P_NOTA_FISCAL_ITEM @pId, @pIdNotaFiscal, @pCfop, @pTipoIcms, @pBaseIcms, @pAliquotaIcms, @pValorIcms, @pNomeProduto, @pCodigoProduto, @pBaseIpi, @pAliquotaIpi, @pValorIpi";
     }
 }
