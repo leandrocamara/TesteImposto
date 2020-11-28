@@ -1,5 +1,6 @@
 ﻿using System.Data.Entity;
 using System.Data.SqlClient;
+using System.Linq;
 using Imposto.Core.NotasFiscais;
 using Imposto.Core.NotasFiscais.Interfaces;
 
@@ -15,7 +16,20 @@ namespace Imposto.Infrastructure.Repository.Repositories
         {
             // Save(notaFiscal);
             // Context.SaveChanges();
+            AddProcedures(notaFiscal);
+        }
+
+        private void AddProcedures(NotaFiscal notaFiscal)
+        {
             Context.Database.ExecuteSqlCommand(ProcedureNotaFiscal, GetParamsProcedureNotaFiscal(notaFiscal));
+
+            var ultimaNotaFiscal = EntitySet.OrderBy(nf => nf.Id).ToList().Last();
+
+            foreach (var notaFiscalItem in notaFiscal.ItensNotaFiscal)
+            {
+                Context.Database.ExecuteSqlCommand(
+                    ProcedureNotaFiscalItem, GetParamsProcedureNotaFiscalItem(ultimaNotaFiscal.Id, notaFiscalItem));
+            }
         }
 
         private object[] GetParamsProcedureNotaFiscal(NotaFiscal notaFiscal)
@@ -31,7 +45,26 @@ namespace Imposto.Infrastructure.Repository.Repositories
             };
         }
 
-        private const string ProcedureNotaFiscal = 
+        private object[] GetParamsProcedureNotaFiscalItem(int notaFiscalId, NotaFiscalItem notaFiscalItem)
+        {
+            return new object[]
+            {
+                new SqlParameter("@pId", notaFiscalItem.Id),
+                new SqlParameter("@pIdNotaFiscal", notaFiscalId),
+                new SqlParameter("@pCfop", notaFiscalItem.Cfop),
+                new SqlParameter("@pTipoIcms", notaFiscalItem.TipoIcms),
+                new SqlParameter("@pBaseIcms", notaFiscalItem.BaseIcms),
+                new SqlParameter("@pAliquotaIcms", notaFiscalItem.AliquotaIcms),
+                new SqlParameter("@pValorIcms", notaFiscalItem.ValorIcms),
+                new SqlParameter("@pNomeProduto", notaFiscalItem.NomeProduto),
+                new SqlParameter("@pCodigoProduto", notaFiscalItem.CodigoProduto)
+            };
+        }
+
+        private const string ProcedureNotaFiscal =
             "P_NOTA_FISCAL @pId, @pNumeroNotaFiscal, @pSerie, @pNomeCliente, @pEstadoDestino, @pEstadoOrigem";
+
+        private const string ProcedureNotaFiscalItem =
+            "P_NOTA_FISCAL_ITEM @pId, @pIdNotaFiscal, @pCfop, @pTipoIcms, @pBaseIcms, @pAliquotaIcms, @pValorIcms, @pNomeProduto, @pCodigoProduto";
     }
 }

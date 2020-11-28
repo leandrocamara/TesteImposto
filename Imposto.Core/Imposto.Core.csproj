@@ -58,6 +58,7 @@
     <Compile Include="Pedidos\PedidoItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ITemplateService.cs" />
+    <Compile Include="ValueObjects\Cfop.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

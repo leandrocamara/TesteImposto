@@ -17,8 +17,7 @@ namespace Imposto.Core.NotasFiscais
 
         public void GerarNotaFiscal(Pedido pedido)
         {
-            var notaFiscal = new NotaFiscal();
-            notaFiscal.EmitirNotaFiscal(pedido);
+            var notaFiscal = NotaFiscal.New(pedido);
 
             _templateService.GenerateXml(notaFiscal, notaFiscal.Serie.ToString());
 
