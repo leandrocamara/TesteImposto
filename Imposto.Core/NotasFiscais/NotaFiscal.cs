@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Imposto.Core.Pedidos;
+using Imposto.Core.ValueObjects;
 
 namespace Imposto.Core.NotasFiscais
 {
@@ -22,8 +23,8 @@ namespace Imposto.Core.NotasFiscais
                 NumeroNotaFiscal = 99999,
                 Serie = new Random().Next(int.MaxValue),
                 NomeCliente = pedido.NomeCliente,
-                EstadoDestino = pedido.EstadoDestino,
-                EstadoOrigem = pedido.EstadoOrigem
+                EstadoDestino = new Uf(pedido.EstadoDestino).Value(),
+                EstadoOrigem = new Uf(pedido.EstadoOrigem).Value()
             };
 
             foreach (var itemPedido in pedido.ItensDoPedido)
@@ -38,7 +39,20 @@ namespace Imposto.Core.NotasFiscais
 
         private void Validate()
         {
-            // TODO: Validar propriedades da NotaFiscal
+            if (string.IsNullOrEmpty(NomeCliente))
+                throw new Exception("O Nome do Cliente é obrigatório!");
+
+            if (string.IsNullOrEmpty(EstadoOrigem))
+                throw new Exception("O Estado Origem é obrigatório!");
+
+            if (string.IsNullOrEmpty(EstadoDestino))
+                throw new Exception("O Estado Destino é obrigatório!");
+
+            if (ItensNotaFiscal.Count == 0)
+                throw new Exception("É obrigatório vincular itens à Nota Fiscal!");
+
+            if (NomeCliente.Length > 50)
+                throw new Exception("O Nome do Cliente é inválido!");
         }
 
         private NotaFiscal()

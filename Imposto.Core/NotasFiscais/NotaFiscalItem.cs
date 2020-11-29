@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 using Imposto.Core.Impostos;
 using Imposto.Core.Pedidos;
 using Imposto.Core.ValueObjects;
@@ -50,7 +51,14 @@ namespace Imposto.Core.NotasFiscais
 
         private void Validate()
         {
-            // TODO: Validar propriedades da NotaFiscalItem
+            if (NotaFiscal == null)
+                throw new Exception("É obrigatório vincular o Item à uma Nota Fiscal");
+            
+            if (string.IsNullOrEmpty(NomeProduto))
+                throw new Exception("O Nome do Produto é obrigatório");
+
+            if (string.IsNullOrEmpty(CodigoProduto))
+                throw new Exception("O Código do Produto é obrigatório");
         }
 
         private NotaFiscalItem()
