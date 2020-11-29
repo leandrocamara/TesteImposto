@@ -20,6 +20,7 @@ namespace Imposto.Core.NotasFiscais
         public double ValorIpi { get; set; }
         public string NomeProduto { get; set; }
         public string CodigoProduto { get; set; }
+        public double Desconto { get; set; }
 
         [XmlIgnore] public NotaFiscal NotaFiscal { get; set; }
 
@@ -41,19 +42,28 @@ namespace Imposto.Core.NotasFiscais
                 ValorIcms = icms.Valor,
                 BaseIpi = ipi.Base,
                 AliquotaIpi = ipi.Aliquota,
-                ValorIpi = ipi.Valor
+                ValorIpi = ipi.Valor,
+                Desconto = 0
             };
 
+            notaFiscalItem.AplicarDesconto();
             notaFiscalItem.Validate();
 
             return notaFiscalItem;
+        }
+
+        private void AplicarDesconto()
+        {
+            var ufEstadoDestino = new Uf(NotaFiscal.EstadoDestino);
+            if (ufEstadoDestino.IsFromSudeste())
+                Desconto = 0.10;
         }
 
         private void Validate()
         {
             if (NotaFiscal == null)
                 throw new Exception("É obrigatório vincular o Item à uma Nota Fiscal");
-            
+
             if (string.IsNullOrEmpty(NomeProduto))
                 throw new Exception("O Nome do Produto é obrigatório");
 

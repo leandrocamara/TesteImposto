@@ -61,6 +61,7 @@ namespace Imposto.Infrastructure.Repository.Repositories
                 new SqlParameter("@pBaseIpi", notaFiscalItem.BaseIpi),
                 new SqlParameter("@pAliquotaIpi", notaFiscalItem.AliquotaIpi),
                 new SqlParameter("@pValorIpi", notaFiscalItem.ValorIpi),
+                new SqlParameter("@pDesconto", notaFiscalItem.Desconto)
             };
         }
 
@@ -68,6 +69,7 @@ namespace Imposto.Infrastructure.Repository.Repositories
             "P_NOTA_FISCAL @pId, @pNumeroNotaFiscal, @pSerie, @pNomeCliente, @pEstadoDestino, @pEstadoOrigem";
 
         private const string ProcedureNotaFiscalItem =
-            "P_NOTA_FISCAL_ITEM @pId, @pIdNotaFiscal, @pCfop, @pTipoIcms, @pBaseIcms, @pAliquotaIcms, @pValorIcms, @pNomeProduto, @pCodigoProduto, @pBaseIpi, @pAliquotaIpi, @pValorIpi";
+            "P_NOTA_FISCAL_ITEM @pId, @pIdNotaFiscal, @pCfop, @pTipoIcms, @pBaseIcms, @pAliquotaIcms, @pValorIcms, " +
+            "@pNomeProduto, @pCodigoProduto, @pBaseIpi, @pAliquotaIpi, @pValorIpi, @pDesconto";
     }
 }

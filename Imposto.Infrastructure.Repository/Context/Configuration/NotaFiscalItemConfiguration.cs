@@ -22,6 +22,7 @@ namespace Imposto.Infrastructure.Repository.Context.Configuration
             Property(nfi => nfi.BaseIpi).HasColumnName("BaseIpi").IsRequired();
             Property(nfi => nfi.AliquotaIpi).HasColumnName("AliquotaIpi").IsRequired();
             Property(nfi => nfi.ValorIpi).HasColumnName("ValorIpi").IsRequired();
+            Property(nfi => nfi.Desconto).HasColumnName("Desconto").IsRequired();
 
             HasRequired(nfi => nfi.NotaFiscal)
                 .WithMany(nf=>nf.ItensNotaFiscal)

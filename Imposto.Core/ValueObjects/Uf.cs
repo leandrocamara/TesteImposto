@@ -19,6 +19,11 @@ namespace Imposto.Core.ValueObjects
             return _value;
         }
 
+        public bool IsFromSudeste()
+        {
+            return UfsSudeste().Contains(_value);
+        }
+
         private void Validate()
         {
             if (!UfsValidas().Contains(_value))
@@ -32,6 +37,11 @@ namespace Imposto.Core.ValueObjects
                 "RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN", "PB", "PE", "AL", "SE", "BA", "MG",
                 "ES", "RJ", "SP", "PR", "SC", "RS", "MS", "MT", "GO", "DF"
             };
+        }
+
+        private List<string> UfsSudeste()
+        {
+            return new List<string> {"MG", "ES", "RJ", "SP"};
         }
     }
 }
