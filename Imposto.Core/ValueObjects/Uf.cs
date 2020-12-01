@@ -9,7 +9,7 @@ namespace Imposto.Core.ValueObjects
 
         public Uf(string value)
         {
-            _value = value.ToUpper();
+            _value = value?.ToUpper();
 
             Validate();
         }
@@ -19,18 +19,18 @@ namespace Imposto.Core.ValueObjects
             return _value;
         }
 
-        public bool IsFromSudeste()
+        public bool SiglaSudeste()
         {
-            return UfsSudeste().Contains(_value);
+            return SiglasSudeste().Contains(_value);
         }
 
         private void Validate()
         {
-            if (!UfsValidas().Contains(_value))
+            if (!SiglasValidas().Contains(_value))
                 throw new Exception($"UF inválida! {_value}");
         }
 
-        private List<string> UfsValidas()
+        private List<string> SiglasValidas()
         {
             return new List<string>
             {
@@ -39,7 +39,7 @@ namespace Imposto.Core.ValueObjects
             };
         }
 
-        private List<string> UfsSudeste()
+        private List<string> SiglasSudeste()
         {
             return new List<string> {"MG", "ES", "RJ", "SP"};
         }
