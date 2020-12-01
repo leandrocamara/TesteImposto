@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net45</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Imposto.Core\Imposto.Core.csproj" />
+      <ProjectReference Include="..\Imposto.Infrastructure.Template\Imposto.Infrastructure.Template.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="EntityFramework" Version="6.4.4" />
+      <PackageReference Include="SimpleInjector" Version="5.1.0" />
+    </ItemGroup>
+
+</Project>
