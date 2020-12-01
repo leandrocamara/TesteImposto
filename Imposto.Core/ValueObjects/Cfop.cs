@@ -22,18 +22,11 @@
                 if (estadoDestino == "SE") _value = "6.009";
                 if (estadoDestino == "PA") _value = "6.010";
             }
-
-            Validate();
         }
 
         public string Value()
         {
             return _value;
-        }
-
-        private void Validate()
-        {
-            // TODO: Validar o valor de CFOP
         }
     }
 }

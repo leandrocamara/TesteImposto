@@ -12,7 +12,7 @@ namespace Imposto.Infrastructure.Repository.Context.Configuration
             HasKey(nfi => nfi.Id).Property(nfi => nfi.Id).HasColumnName("Id")
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(nfi => nfi.IdNotaFiscal).HasColumnName("IdNotaFiscal").IsRequired();
-            Property(nfi => nfi.Cfop).HasColumnName("Cfop").IsRequired();
+            Property(nfi => nfi.Cfop).HasColumnName("Cfop").IsOptional();
             Property(nfi => nfi.TipoIcms).HasColumnName("TipoIcms").IsRequired();
             Property(nfi => nfi.BaseIcms).HasColumnName("BaseIcms").IsRequired();
             Property(nfi => nfi.AliquotaIcms).HasColumnName("AliquotaIcms").IsRequired();

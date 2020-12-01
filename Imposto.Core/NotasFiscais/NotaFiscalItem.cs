@@ -55,7 +55,7 @@ namespace Imposto.Core.NotasFiscais
         private void AplicarDesconto()
         {
             var ufEstadoDestino = new Uf(NotaFiscal.EstadoDestino);
-            if (ufEstadoDestino.IsFromSudeste())
+            if (ufEstadoDestino.SiglaSudeste())
                 Desconto = 0.10;
         }
 
